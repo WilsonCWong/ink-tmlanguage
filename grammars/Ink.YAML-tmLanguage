@@ -31,6 +31,7 @@ variables:
 #
 # >-: YAML multi-line string, turning line breaks into spaces
 patterns:
+- include: '#command'
 - include: '#comment'
 - include: '#tag'
 - include: '#todo'
@@ -46,6 +47,19 @@ patterns:
 - include: '#interpolevaluablock'
 
 repository:
+
+# ##############################################################################
+# Commands
+# ##############################################################################
+
+  command: # Custom (:>) commands.
+    patterns:
+    - match: (?:^)(?:{{whitespace}})*(:>)(?:{{whitespace}})*([a-zA-Z_]*)(?:{{whitespace}})*(""[.]*""|[^\s]+)?(?:{{whitespace}})*(.*)
+      captures:
+        '1': { name: keyword.operator.command.ink }
+        '2': { name: keyword.other.command.ink }
+        '3': { name: keyword.operator.word.command.ink }
+        '4': { name: variable.parameter.command.ink}
 
 # ##############################################################################
 # Comments

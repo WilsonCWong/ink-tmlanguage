@@ -17,6 +17,10 @@
     <array>
       <dict>
         <key>include</key>
+        <string>#command</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#comment</string>
       </dict>
       <dict>
@@ -70,6 +74,39 @@
     </array>
     <key>repository</key>
     <dict>
+      <key>command</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>match</key>
+            <string>(?:^)(?:[^\S\n\r])*(:&gt;)(?:[^\S\n\r])*([a-zA-Z_]*)(?:[^\S\n\r])*(""[.]*""|[^\s]+)?(?:[^\S\n\r])*(.*)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.command.ink</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.other.command.ink</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.word.command.ink</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>variable.parameter.command.ink</string>
+              </dict>
+            </dict>
+          </dict>
+        </array>
+      </dict>
       <key>comment</key>
       <dict>
         <key>patterns</key>
